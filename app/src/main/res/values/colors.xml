@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#005caa</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="purple">#5E17BA</color>
+    <color name="red">#C70039</color>
+    <color name="bg2">#e4e7c3</color>
+    <color name="bg">#8c8c8b</color>
+    <color name="light">#f4e7e7</color>
+    <color name="card_bg">#e7e7e7</color>
+    <color name="button_focused">#ff8a00</color>
+    <color name="login_bg">#3c2c63</color>
+    <color name="login_btn">#04dbf7</color>
+    <color name="dark_cyan">#008b8b</color>
+    <color name="light_cyan">#e0ffff</color>
+    <color name="brown_light">#F5DEB3</color>
+    <color name="blue_light">#add8e6</color>
+</resources>
