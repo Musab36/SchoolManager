@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == mAttendence) {
-            Intent intent = new Intent(MainActivity.this, AttendenceActivity.class);
+            Intent intent = new Intent(MainActivity.this, AttendanceActivity.class);
             startActivity(intent);
         }
     }

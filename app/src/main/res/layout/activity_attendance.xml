@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".activities.AttendenceActivity"
+    tools:context=".activities.AttendanceActivity"
     android:background="@color/brown_light">
 
     <android.support.v7.widget.RecyclerView
