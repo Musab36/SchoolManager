@@ -28,6 +28,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.AttendanceActivity" />
         </activity>
+        <activity android:name=".activities.AssignmentsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+        <activity android:name=".activities.AssignmentsDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.AssignmentsActivity" />
+        </activity>
     </application>
 
 </manifest>

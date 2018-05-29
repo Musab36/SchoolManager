@@ -15,6 +15,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.attendence)
     TextView mAttendence;
+    @Bind(R.id.assignments) TextView mAssignments;
 
     ActionBar toolbar;
 
@@ -28,12 +29,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().setCustomView(R.layout.main_bar);
 
         mAttendence.setOnClickListener(this);
+        mAssignments.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         if (v == mAttendence) {
             Intent intent = new Intent(MainActivity.this, AttendanceActivity.class);
+            startActivity(intent);
+        }
+        if(v == mAssignments) {
+            Intent intent = new Intent(MainActivity.this, AssignmentsActivity.class);
             startActivity(intent);
         }
     }
