@@ -14,6 +14,8 @@ public class Assignments implements Parcelable {
     @SerializedName("remarks") String remarks;
     @SerializedName("score") String score;
 
+    public Assignments() {}
+
     public Assignments(Integer student_id, String name, String mClass, String subject, String instructions, String remarks, String score) {
         this.student_id = student_id;
         this.name = name;

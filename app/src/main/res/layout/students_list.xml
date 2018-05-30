@@ -9,7 +9,7 @@
         android:id="@+id/myCard"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
+        android:layout_marginLeft="5dp"
         card_view:cardCornerRadius="15dp"
         card_view:cardBackgroundColor="@color/light_cyan">
 

@@ -28,7 +28,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.AttendanceActivity" />
         </activity>
-        <activity android:name=".activities.AssignmentsActivity" >
+        <activity android:name=".activities.AssignmentsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MainActivity" />
@@ -37,6 +37,16 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.AssignmentsActivity" />
+        </activity>
+        <activity android:name=".activities.GradesActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+        <activity android:name=".activities.GradesDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.GradesActivity" />
         </activity>
     </application>
 
