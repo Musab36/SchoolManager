@@ -12,8 +12,8 @@
     <color name="button_focused">#ff8a00</color>
     <color name="login_bg">#3c2c63</color>
     <color name="login_btn">#04dbf7</color>
-    <color name="dark_cyan">#008b8b</color>
-    <color name="light_cyan">#e0ffff</color>
+    <color name="dark_cyan">#008B8B</color>
+    <color name="light_cyan">#ADD8E6</color>
     <color name="brown_light">#F5DEB3</color>
     <color name="blue_light">#add8e6</color>
 </resources>

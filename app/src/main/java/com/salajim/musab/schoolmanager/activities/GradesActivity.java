@@ -88,6 +88,7 @@ public class GradesActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<StudentsResponse> call, Throwable t) {
+                    progressDialog.dismiss();
                     Log.d("serverError", t.getMessage());
                     Toast.makeText(GradesActivity.this, "Error fetching  data", Toast.LENGTH_SHORT).show();
 

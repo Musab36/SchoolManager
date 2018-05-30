@@ -84,9 +84,9 @@ public class AttendanceActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<StudentsResponse> call, Throwable t) {
+                    progressDialog.dismiss();
                     Log.d("serverError", t.getMessage());
                     Toast.makeText(AttendanceActivity.this, "Error fetching  data", Toast.LENGTH_SHORT).show();
-                    progressDialog.dismiss();
 
                 }
             });

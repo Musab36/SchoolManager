@@ -49,7 +49,7 @@ public class AssignmentsDetailActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         toolbar = getSupportActionBar();
-        toolbar.setTitle("Assigmnets Records");
+        toolbar.setTitle("Assigmnet Records");
 
         studentsLists = new ArrayList<>();
         assignments = new ArrayList<>();

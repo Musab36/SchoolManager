@@ -37,9 +37,9 @@ public class AssignmentsDetailAdapter extends RecyclerView.Adapter<AssignmentsDe
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         final Assignments assignment = assignments.get(position);
 
-        holder.mName.setText("Name: " + assignment.getName());
+        //holder.mName.setText("Name: " + assignment.getName());
         holder.mSubject.setText("Subject: " + assignment.getSubject());
-        holder.mClass.setText("Class: " + assignment.getmClass());
+        //holder.mClass.setText("Class: " + assignment.getmClass());
         holder.instructions.setText("Instructions: " + assignment.getInstructions());
         holder.mRemarks.setText("Remarks: " + assignment.getRemarks());
         holder.mScore.setText("Score: " + assignment.getRemarks());
@@ -51,8 +51,7 @@ public class AssignmentsDetailAdapter extends RecyclerView.Adapter<AssignmentsDe
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.name)
-        TextView mName;
+        //@Bind(R.id.name) TextView mName;
         @Bind({R.id.subject}) TextView mSubject;
         @Bind(R.id.clas) TextView mClass;
         @Bind(R.id.remarks) TextView mRemarks;

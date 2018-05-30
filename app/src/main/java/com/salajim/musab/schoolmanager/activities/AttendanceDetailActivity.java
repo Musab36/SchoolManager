@@ -101,9 +101,9 @@ public class AttendanceDetailActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<AttendanceResponse> call, Throwable t) {
+                    progressDialog.dismiss();
                     Log.d("serverError", t.getMessage());
                     Toast.makeText(AttendanceDetailActivity.this, "Error fetching  data", Toast.LENGTH_SHORT).show();
-                    progressDialog.dismiss();
 
                 }
             });

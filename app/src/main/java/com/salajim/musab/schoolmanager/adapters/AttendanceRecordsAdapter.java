@@ -38,7 +38,7 @@ public class AttendanceRecordsAdapter extends RecyclerView.Adapter<AttendanceRec
         final Attendance attendanceRecords = attRecords.get(position);
 
 
-        holder.nameTextview.setText("Name:" + attendanceRecords.getName());
+        //holder.nameTextview.setText("Name:" + attendanceRecords.getName());
         holder.statusTextview.setText("Status: " + attendanceRecords.getStatus());
         holder.dateTextview.setText("Date: " + attendanceRecords.getDate());
         holder.dayTextview.setText("Day: " + attendanceRecords.getDay());
@@ -51,8 +51,7 @@ public class AttendanceRecordsAdapter extends RecyclerView.Adapter<AttendanceRec
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.name)
-        TextView nameTextview;
+        //@Bind(R.id.name) TextView nameTextview;
         @Bind(R.id.status) TextView statusTextview;
         @Bind(R.id.date) TextView dateTextview;
 
