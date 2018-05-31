@@ -16,11 +16,11 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class AttendanceRecordsAdapter extends RecyclerView.Adapter<AttendanceRecordsAdapter.MyViewHolder>{
+public class AbsentAdapter extends RecyclerView.Adapter<AbsentAdapter.MyViewHolder>{
     private Context mContext;
     private List<Attendance> attRecords;
 
-    public AttendanceRecordsAdapter(Context mContext, List<Attendance> attRecords) {
+    public AbsentAdapter(Context mContext, List<Attendance> attRecords) {
         this.mContext = mContext;
         this.attRecords = attRecords;
     }
@@ -39,12 +39,12 @@ public class AttendanceRecordsAdapter extends RecyclerView.Adapter<AttendanceRec
 
 
         //holder.nameTextview.setText("Name:" + attendanceRecords.getName());
-        if(attendanceRecords.getStatus().equals("Present")) {
+        if(attendanceRecords.getStatus().equals("Absent")) {
             holder.statusTextview.setText("Status: " + attendanceRecords.getStatus());
             holder.dateTextview.setText("Date: " + attendanceRecords.getDate());
             holder.dayTextview.setText("Day: " + attendanceRecords.getDay());
         } else {
-            holder.mUnavailable.setText("No records avialable");
+           holder.mUnavailable.setText("No records avialable");
         }
 
 
@@ -52,7 +52,10 @@ public class AttendanceRecordsAdapter extends RecyclerView.Adapter<AttendanceRec
 
     @Override
     public int getItemCount() {
-        return attRecords == null? 0 : attRecords.size();
+        if (attRecords == null)
+            return 0;
+        else
+            return  attRecords.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

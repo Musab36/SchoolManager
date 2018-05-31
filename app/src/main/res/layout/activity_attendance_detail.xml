@@ -1,17 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.AttendanceDetailActivity"
     android:background="@color/light">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <android.support.v7.widget.CardView
+        android:id="@+id/myCard"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="50dp"
+        card_view:cardBackgroundColor="@color/light_cyan">
 
-    </android.support.v7.widget.RecyclerView>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/presentBtn"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:text="Present"
+                android:textAllCaps="false"
+                android:textColor="@color/dark_cyan"
+                android:background="@android:color/white"
+                android:layout_marginLeft="27dp"
+                android:layout_marginTop="7dp"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/absentBtn"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:text="Absent"
+                android:textAllCaps="false"
+                android:textColor="@color/dark_cyan"
+                android:background="@android:color/darker_gray"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="7dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@+id/presentBtn"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <fragment
+        android:id="@+id/fragments"
+        android:name="com.salajim.musab.schoolmanager.fragments.PresentFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/myCard" />
 
 </RelativeLayout>
