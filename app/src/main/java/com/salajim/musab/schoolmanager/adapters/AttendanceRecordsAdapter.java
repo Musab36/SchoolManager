@@ -40,7 +40,7 @@ public class AttendanceRecordsAdapter extends RecyclerView.Adapter<AttendanceRec
 
         //holder.nameTextview.setText("Name:" + attendanceRecords.getName());
         if(attendanceRecords.getStatus().equals("Present")) {
-            holder.statusTextview.setText("Status: " + attendanceRecords.getStatus());
+            //holder.statusTextview.setText("Status: " + attendanceRecords.getStatus());
             holder.dateTextview.setText("Date: " + attendanceRecords.getDate());
             holder.dayTextview.setText("Day: " + attendanceRecords.getDay());
         } else {
@@ -57,7 +57,7 @@ public class AttendanceRecordsAdapter extends RecyclerView.Adapter<AttendanceRec
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         //@Bind(R.id.name) TextView nameTextview;
-        @Bind(R.id.status) TextView statusTextview;
+        //@Bind(R.id.status) TextView statusTextview;
         @Bind(R.id.date) TextView dateTextview;
 
         @Bind(R.id.day) TextView dayTextview;
