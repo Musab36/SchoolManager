@@ -42,6 +42,8 @@ public class MonAdapter extends RecyclerView.Adapter<MonAdapter.MyViewHolder>{
             holder.mSubject.setText(schedule.getSubject());
             holder.mTeacher.setText("Teacher: " + schedule.getTeacher());
             holder.mTime.setText("Time: " + schedule.getStart_time() + " - " + schedule.getEnd_time());
+            holder.mTerm.setText("Term: " + schedule.getTerm());
+            holder.mClass.setText("Class: " + schedule.getClas());
         } else {
             holder.cardView.setVisibility(View.GONE);
         }
@@ -58,6 +60,8 @@ public class MonAdapter extends RecyclerView.Adapter<MonAdapter.MyViewHolder>{
         @Bind(R.id.teacher) TextView mTeacher;
         @Bind(R.id.time) TextView mTime;
         @Bind(R.id.cardView) CardView cardView;
+        @Bind(R.id.term) TextView mTerm;
+        @Bind(R.id.clas) TextView mClass;
 
         private Context mContext;
 

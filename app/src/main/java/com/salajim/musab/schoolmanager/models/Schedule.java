@@ -14,13 +14,15 @@ public class Schedule implements Parcelable {
     @SerializedName("current") String current;
     @SerializedName("taken") String taken;
     @SerializedName("notes") String notes;
+    @SerializedName("term") String term;
+    @SerializedName("class") String clas;
     @SerializedName("student_id") Integer student_id;
     @SerializedName("student_name") String name;
 
     public Schedule() {}
 
     public Schedule(String subject, String teacher, String start_time, String end_time, String day, String current, String taken, String notes,
-                    Integer student_id, String name) {
+                    String term, String clas, Integer student_id, String name) {
         this.subject = subject;
         this.teacher = teacher;
         this.start_time = start_time;
@@ -31,6 +33,8 @@ public class Schedule implements Parcelable {
         this.notes = notes;
         this.student_id = student_id;
         this.name = name;
+        this.term = term;
+        this.clas = clas;
     }
 
     public String getSubject() {
@@ -65,6 +69,14 @@ public class Schedule implements Parcelable {
         return notes;
     }
 
+    public String getTerm() {
+        return term;
+    }
+
+    public String getClas() {
+        return clas;
+    }
+
     public Integer getStudent_id() {
         return student_id;
     }
@@ -82,6 +94,8 @@ public class Schedule implements Parcelable {
         current = in.readString();
         taken = in.readString();
         notes = in.readString();
+        term = in.readString();
+        clas = in.readString();
         this.student_id = (Integer) in.readValue(Integer.class.getClassLoader());
         name = in.readString();
     }
@@ -96,6 +110,8 @@ public class Schedule implements Parcelable {
         dest.writeString(current);
         dest.writeString(taken);
         dest.writeString(notes);
+        dest.writeString(term);
+        dest.writeString(clas);
         dest.writeValue(student_id);
         dest.writeString(name);
     }

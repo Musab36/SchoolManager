@@ -61,6 +61,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.ScheduleActivity" />
         </activity>
+        <activity android:name=".activities.DisciplineActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+        <activity android:name=".activities.DisciplineDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.DisciplineActivity" />
+        </activity>
     </application>
 
 </manifest>

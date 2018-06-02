@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.assignments) TextView mAssignments;
     @Bind(R.id.grades) TextView mGrades;
     @Bind(R.id.schedule) TextView mSchedule;
+    @Bind(R.id.behavior) TextView mBehavior;
+    @Bind(R.id.courses) TextView mCourses;
 
     ActionBar toolbar;
 
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAssignments.setOnClickListener(this);
         mGrades.setOnClickListener(this);
         mSchedule.setOnClickListener(this);
+        mBehavior.setOnClickListener(this);
+        mCourses.setOnClickListener(this);
     }
 
     @Override
@@ -53,6 +57,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v == mSchedule) {
             Intent intent = new Intent(MainActivity.this, ScheduleActivity.class);
             startActivity(intent);
+        }
+        if (v == mBehavior) {
+            Intent intent = new Intent(MainActivity.this, DisciplineActivity.class);
+            startActivity(intent);
+        }
+        if (v == mCourses) {
+
         }
     }
 }
