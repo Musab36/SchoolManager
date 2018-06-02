@@ -10,13 +10,15 @@ import android.view.View;
 
 import com.salajim.musab.schoolmanager.R;
 import com.salajim.musab.schoolmanager.adapters.SectionsPagerAdapter;
-import com.salajim.musab.schoolmanager.fragments.AbsentFragment;
-import com.salajim.musab.schoolmanager.fragments.LateFragment;
-import com.salajim.musab.schoolmanager.fragments.PresentFragment;
+import com.salajim.musab.schoolmanager.fragments.FriFragment;
+import com.salajim.musab.schoolmanager.fragments.MonFragment;
+import com.salajim.musab.schoolmanager.fragments.ThurFragment;
+import com.salajim.musab.schoolmanager.fragments.TueFragment;
+import com.salajim.musab.schoolmanager.fragments.WedFragment;
 
 import butterknife.ButterKnife;
 
-public class AttendanceDetailActivity extends AppCompatActivity{
+public class ScheduleDetailActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private SectionsPagerAdapter mAdapter;
 
@@ -25,11 +27,11 @@ public class AttendanceDetailActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_attendance_detail);
+        setContentView(R.layout.activity_schedule_detail);
         ButterKnife.bind(this);
 
         toolbar = getSupportActionBar();
-        toolbar.setTitle("Attendance Records");
+        toolbar.setTitle("Time Table");
 
         View tabs = findViewById(R.id.tabs);
         ViewCompat.setElevation(tabs, getResources().getDimension(R.dimen.action_bar_elevation));
@@ -45,11 +47,12 @@ public class AttendanceDetailActivity extends AppCompatActivity{
 
     private void setupViewPager(ViewPager viewPager) {
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new PresentFragment(), "Present");
-        adapter.addFragment(new AbsentFragment(), "Absent");
-        adapter.addFragment(new LateFragment(), "Late");
+        adapter.addFragment(new MonFragment(), "MON");
+        adapter.addFragment(new TueFragment(), "TUE");
+        adapter.addFragment(new WedFragment(), "WED");
+        adapter.addFragment(new ThurFragment(), "THUR");
+        adapter.addFragment(new FriFragment(), "FRI");
 
         viewPager.setAdapter(adapter);
     }
-
 }

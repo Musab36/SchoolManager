@@ -2,6 +2,7 @@ package com.salajim.musab.schoolmanager.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,12 +40,12 @@ public class AttendanceRecordsAdapter extends RecyclerView.Adapter<AttendanceRec
 
 
         //holder.nameTextview.setText("Name:" + attendanceRecords.getName());
-        if(attendanceRecords.getStatus().equals("Present")) {
+        if(attendanceRecords.getStatus().contains("Present")) {
             //holder.statusTextview.setText("Status: " + attendanceRecords.getStatus());
             holder.dateTextview.setText("Date: " + attendanceRecords.getDate());
             holder.dayTextview.setText("Day: " + attendanceRecords.getDay());
         } else {
-            holder.mUnavailable.setText("No records avialable");
+            holder.cardView.setVisibility(View.GONE);
         }
 
 
@@ -63,6 +64,8 @@ public class AttendanceRecordsAdapter extends RecyclerView.Adapter<AttendanceRec
         @Bind(R.id.day) TextView dayTextview;
         @Bind(R.id.unavailable)
         TextView mUnavailable;
+        @Bind(R.id.myCard)
+        CardView cardView;
 
         private Context mContext;
 

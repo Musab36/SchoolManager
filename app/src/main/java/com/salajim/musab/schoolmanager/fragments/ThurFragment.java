@@ -14,15 +14,16 @@ import android.widget.Toast;
 
 import com.salajim.musab.schoolmanager.BuildConfig;
 import com.salajim.musab.schoolmanager.R;
-import com.salajim.musab.schoolmanager.adapters.AttendanceRecordsAdapter;
+import com.salajim.musab.schoolmanager.adapters.ThurAdapter;
 import com.salajim.musab.schoolmanager.api.Client;
-import com.salajim.musab.schoolmanager.api.Service;
-import com.salajim.musab.schoolmanager.models.Attendance;
-import com.salajim.musab.schoolmanager.models.AttendanceResponse;
+import com.salajim.musab.schoolmanager.api.ScheduleService;
+import com.salajim.musab.schoolmanager.models.Schedule;
+import com.salajim.musab.schoolmanager.models.ScheduleResponse;
 import com.salajim.musab.schoolmanager.models.Students;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -34,17 +35,19 @@ import retrofit2.Response;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PresentFragment extends Fragment {
-    private AttendanceRecordsAdapter mAdapter;
+public class ThurFragment extends Fragment {
     @Bind(R.id.recyclerView)
     RecyclerView recyclerView;
-    int student_id;
+
+    private ThurAdapter mAdapter;
     private List<Students> studentsLists;
-    private List<Attendance> attRecords;
+    private List<Schedule> schedules;
+
     private Students students;
+    int student_id;
 
 
-    public PresentFragment() {
+    public ThurFragment() {
         // Required empty public constructor
     }
 
@@ -53,8 +56,11 @@ public class PresentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_present, container, false);
+        View view = inflater.inflate(R.layout.fragment_thur, container, false);
         ButterKnife.bind(this, view);
+
+        studentsLists = new ArrayList<>();
+        schedules = new ArrayList<>();
 
         studentsLists = Parcels.unwrap(getActivity().getIntent().getParcelableExtra("studentsLists"));
         int startingPosition = getActivity().getIntent().getIntExtra("position", 0);
@@ -63,7 +69,7 @@ public class PresentFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        mAdapter = new AttendanceRecordsAdapter(getActivity(), attRecords);
+        mAdapter = new ThurAdapter(getActivity(), schedules);
         recyclerView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
 
@@ -72,52 +78,51 @@ public class PresentFragment extends Fragment {
         return view;
     }
 
-    private void getData(){
+    private void getData() {
         final ProgressDialog progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Loading...");
         progressDialog.show();
 
         student_id = students.getId();
 
-
-        try{
-            if (BuildConfig.API_KEY.isEmpty()){
+        try {
+            if(BuildConfig.API_KEY.isEmpty()) {
                 Toast.makeText(getActivity(), "Please obtain your API Key from the Developers", Toast.LENGTH_SHORT).show();
                 return;
             }
-            Client Client = new Client();
-            Service apiService = Client.getClient().create(Service.class);
 
-            Call<AttendanceResponse> call = apiService.getAttendance(student_id, BuildConfig.API_KEY);
+            Client client = new Client();
+            ScheduleService apiService = Client.getClient().create(ScheduleService.class);
 
-            call.enqueue(new Callback<AttendanceResponse>() {
+            Call<ScheduleResponse> call = apiService.getSchedule(student_id, BuildConfig.API_KEY);
+
+            call.enqueue(new Callback<ScheduleResponse>() {
                 @Override
-                public void onResponse(Call<AttendanceResponse> call, Response<AttendanceResponse> response) {
+                public void onResponse(Call<ScheduleResponse> call, Response<ScheduleResponse> response) {
                     progressDialog.dismiss();
+
                     if (response == null) {
                         Toast.makeText(getActivity(), "No response from the Server", Toast.LENGTH_LONG).show();
                     }
-                    List<Attendance> attRecords = response.body().getAttendance();
 
-                    mAdapter = new AttendanceRecordsAdapter(getActivity(), attRecords);
+                    List<Schedule> schedules = response.body().getSchedules();
+
+                    mAdapter = new ThurAdapter(getActivity(), schedules);
                     recyclerView.setAdapter(mAdapter);
                     recyclerView.smoothScrollToPosition(0);
                 }
 
                 @Override
-                public void onFailure(Call<AttendanceResponse> call, Throwable t) {
+                public void onFailure(Call<ScheduleResponse> call, Throwable t) {
                     progressDialog.dismiss();
                     Log.d("serverError", t.getMessage());
                     Toast.makeText(getActivity(), "Error fetching  data", Toast.LENGTH_SHORT).show();
-
                 }
             });
-
-        }catch (Exception e){
+        } catch (Exception e) {
             Log.d("get Data Error", e.getMessage());
             Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_SHORT).show();
         }
     }
-
 
 }
