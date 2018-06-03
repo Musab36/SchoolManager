@@ -1,6 +1,7 @@
 package com.salajim.musab.schoolmanager.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,19 +10,23 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.salajim.musab.schoolmanager.R;
-import com.salajim.musab.schoolmanager.models.StudentsList;
+import com.salajim.musab.schoolmanager.activities.CoursesDetailActivity;
+import com.salajim.musab.schoolmanager.models.Students;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class AttendenceStudentListAdapter extends RecyclerView.Adapter<AttendenceStudentListAdapter.MyViewHolder>{
-    private Context mConext;
-    private List<StudentsList> studentsLists;
+public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.MyViewHolder>{
+    private Context mContext;
+    private List<Students> studentsLists;
 
-    public AttendenceStudentListAdapter(Context mConext, List<StudentsList> studentsLists) {
-        this.mConext = mConext;
+
+    public CoursesAdapter(Context mContext, List<Students> studentsLists) {
+        this.mContext = mContext;
         this.studentsLists = studentsLists;
     }
 
@@ -35,7 +40,7 @@ public class AttendenceStudentListAdapter extends RecyclerView.Adapter<Attendenc
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        final StudentsList studentsList = studentsLists.get(position);
+        final Students studentsList = studentsLists.get(position);
 
         holder.mName.setText(studentsList.getName());
         holder.mClass.setText("Class: " + studentsList.getClas());
@@ -59,7 +64,19 @@ public class AttendenceStudentListAdapter extends RecyclerView.Adapter<Attendenc
         public MyViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-            mConext = itemView.getContext();
+            mContext = itemView.getContext();
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int itemPosition = getLayoutPosition();
+                    Intent intent = new Intent(mContext, CoursesDetailActivity.class);
+                    intent.putExtra("position", itemPosition);
+                    intent.putExtra("studentsLists", Parcels.wrap(studentsLists) );
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    mContext.startActivity(intent);
+                }
+            });
         }
     }
 }

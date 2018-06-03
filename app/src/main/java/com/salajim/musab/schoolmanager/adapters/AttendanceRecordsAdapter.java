@@ -2,6 +2,7 @@ package com.salajim.musab.schoolmanager.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,25 +39,33 @@ public class AttendanceRecordsAdapter extends RecyclerView.Adapter<AttendanceRec
         final Attendance attendanceRecords = attRecords.get(position);
 
 
-        holder.nameTextview.setText("Name:" + attendanceRecords.getName());
-        holder.statusTextview.setText("Status: " + attendanceRecords.getStatus());
-        holder.dateTextview.setText("Date: " + attendanceRecords.getDate());
-        holder.dayTextview.setText("Day: " + attendanceRecords.getDay());
+        //holder.nameTextview.setText("Name:" + attendanceRecords.getName());
+        if(attendanceRecords.getStatus().contains("Present")) {
+            //holder.statusTextview.setText("Status: " + attendanceRecords.getStatus());
+            holder.dateTextview.setText("Date: " + attendanceRecords.getDate());
+            holder.dayTextview.setText("Day: " + attendanceRecords.getDay());
+        } else {
+            holder.cardView.setVisibility(View.GONE);
+        }
+
 
     }
 
     @Override
     public int getItemCount() {
-        return attRecords.size();
+        return attRecords == null? 0 : attRecords.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.name)
-        TextView nameTextview;
-        @Bind(R.id.status) TextView statusTextview;
+        //@Bind(R.id.name) TextView nameTextview;
+        //@Bind(R.id.status) TextView statusTextview;
         @Bind(R.id.date) TextView dateTextview;
 
         @Bind(R.id.day) TextView dayTextview;
+        @Bind(R.id.unavailable)
+        TextView mUnavailable;
+        @Bind(R.id.myCard)
+        CardView cardView;
 
         private Context mContext;
 

@@ -15,6 +15,11 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.attendence)
     TextView mAttendence;
+    @Bind(R.id.assignments) TextView mAssignments;
+    @Bind(R.id.grades) TextView mGrades;
+    @Bind(R.id.schedule) TextView mSchedule;
+    @Bind(R.id.behavior) TextView mBehavior;
+    @Bind(R.id.courses) TextView mCourses;
 
     ActionBar toolbar;
 
@@ -28,12 +33,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().setCustomView(R.layout.main_bar);
 
         mAttendence.setOnClickListener(this);
+        mAssignments.setOnClickListener(this);
+        mGrades.setOnClickListener(this);
+        mSchedule.setOnClickListener(this);
+        mBehavior.setOnClickListener(this);
+        mCourses.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         if (v == mAttendence) {
             Intent intent = new Intent(MainActivity.this, AttendanceActivity.class);
+            startActivity(intent);
+        }
+        if(v == mAssignments) {
+            Intent intent = new Intent(MainActivity.this, AssignmentsActivity.class);
+            startActivity(intent);
+        }
+        if(v == mGrades) {
+            Intent intent = new Intent(MainActivity.this, GradesActivity.class);
+            startActivity(intent);
+        }
+        if(v == mSchedule) {
+            Intent intent = new Intent(MainActivity.this, ScheduleActivity.class);
+            startActivity(intent);
+        }
+        if (v == mBehavior) {
+            Intent intent = new Intent(MainActivity.this, DisciplineActivity.class);
+            startActivity(intent);
+        }
+        if (v == mCourses) {
+            Intent intent = new Intent(MainActivity.this, CoursesActivity.class);
             startActivity(intent);
         }
     }
