@@ -9,49 +9,49 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.salajim.musab.schoolmanager.R;
-import com.salajim.musab.schoolmanager.models.Discipline;
+import com.salajim.musab.schoolmanager.models.Courses;
 
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class DisciplineDetailAdapter extends RecyclerView.Adapter<DisciplineDetailAdapter.MyViewHolder>{
+public class CoursesDetailAdapter extends RecyclerView.Adapter<CoursesDetailAdapter.MyViewHolder>{
     private Context mContext;
-    private List<Discipline> disciplineList;
+    private List<Courses> courses;
 
-    public DisciplineDetailAdapter(Context mContext, List<Discipline> disciplineList) {
+    public CoursesDetailAdapter(Context mContext, List<Courses> courses) {
         this.mContext = mContext;
-        this.disciplineList = disciplineList;
+        this.courses = courses;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.discipline_records, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.courses_list, parent, false);
 
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        final Discipline discipline = disciplineList.get(position);
+        final Courses course = courses.get(position);
 
-        holder.offence.setText("Offence: " + discipline.getOffence());
-        holder.punishment.setText("Punishments: " + discipline.getPunishment());
-        holder.teacher.setText("Teacher: " + discipline.getTeacher());
-    }
+            holder.subject.setText(course.getSubject());
+            holder.type.setText("Type: " + course.getType());
+            holder.teacher.setText("Teacher: " + course.getTeacher());
+        }
 
     @Override
     public int getItemCount() {
-        return disciplineList.size();
+        return courses.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         //@Bind(R.id.name) TextView mName;
-       @Bind(R.id.offence)
-        TextView offence;
-       @Bind(R.id.punishment) TextView punishment;
+       @Bind(R.id.subject)
+        TextView subject;
+       @Bind(R.id.type) TextView type;
        @Bind(R.id.teacher) TextView teacher;
 
         private Context mContext;

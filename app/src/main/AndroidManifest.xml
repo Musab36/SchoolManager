@@ -61,7 +61,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.ScheduleActivity" />
         </activity>
-        <activity android:name=".activities.DisciplineActivity" >
+        <activity android:name=".activities.DisciplineActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MainActivity" />
@@ -70,6 +70,16 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.DisciplineActivity" />
+        </activity>
+        <activity android:name=".activities.CoursesActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+        <activity android:name=".activities.CoursesDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.CoursesActivity" />
         </activity>
     </application>
 

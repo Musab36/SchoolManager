@@ -63,7 +63,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
         if (v == mCourses) {
-
+            Intent intent = new Intent(MainActivity.this, CoursesActivity.class);
+            startActivity(intent);
         }
     }
 }
