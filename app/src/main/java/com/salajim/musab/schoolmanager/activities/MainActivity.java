@@ -1,6 +1,6 @@
 package com.salajim.musab.schoolmanager.activities;
 
-import android.app.AlertDialog.Builder;
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,24 +24,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.courses) TextView mCourses;
 
     ActionBar toolbar;
-
-    public void onBackPressed(){
-        final Builder builder = new Builder(this);
-        builder.setTitle("Thank You!");
-        builder.setMessage("Are you sure you want to quit?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface var1, int var2) {
-                MainActivity.this.finish();
-            }
-        });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.cancel();
-            }
-        });
-        builder.show();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,5 +68,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, CoursesActivity.class);
             startActivity(intent);
         }
+    }
+
+    public void onBackPressed(){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Thank You!");
+        builder.setMessage("Are you sure you want to quit?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int d) {
+                MainActivity.this.finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        builder.show();
     }
 }

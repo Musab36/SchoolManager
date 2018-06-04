@@ -6,17 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".activities.AssignmentsActivity">
 
+
+    <TextView
+        android:id="@+id/selectStudent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_cyan"
+        android:text="Select Student"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/gradient3" />
+        app:srcCompat="@drawable/gradient3"
+        android:layout_below="@+id/selectStudent"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/selectStudent">
 
     </android.support.v7.widget.RecyclerView>
 

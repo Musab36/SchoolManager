@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.salajim.musab.schoolmanager.BuildConfig;
@@ -29,6 +31,8 @@ import retrofit2.Response;
 public class ScheduleActivity extends AppCompatActivity {
     @Bind(R.id.recyclerView)
     RecyclerView recyclerView;
+    @Bind({R.id.selectStudent})
+    TextView selectStudent;
 
     private List<Students> studentsLists;
     private ScheduleAdapter mAdapter;
@@ -77,6 +81,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
                     if(response == null) {
                         Toast.makeText(ScheduleActivity.this, "No response from the Server", Toast.LENGTH_LONG).show();
+                        selectStudent.setVisibility(View.GONE);
                     }
 
                     List<Students> studentsLists = response.body().getStudents();
@@ -91,6 +96,7 @@ public class ScheduleActivity extends AppCompatActivity {
                     progressDialog.dismiss();
                     Log.d("serverError", t.getMessage());
                     Toast.makeText(ScheduleActivity.this, "Error fetching  data", Toast.LENGTH_SHORT).show();
+                    selectStudent.setVisibility(View.GONE);
 
                 }
             });

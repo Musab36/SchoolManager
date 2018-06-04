@@ -71,7 +71,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.DisciplineActivity" />
         </activity>
-        <activity android:name=".activities.CoursesActivity" >
+        <activity android:name=".activities.CoursesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MainActivity" />
