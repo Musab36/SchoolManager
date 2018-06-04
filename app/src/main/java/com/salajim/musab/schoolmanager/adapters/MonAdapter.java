@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.salajim.musab.schoolmanager.R;
 import com.salajim.musab.schoolmanager.models.Schedule;
 
@@ -36,6 +38,7 @@ public class MonAdapter extends RecyclerView.Adapter<MonAdapter.MyViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        YoYo.with(Techniques.FadeIn).playOn(holder.cardView);//RecyclerView animations
         final Schedule schedule = schedules.get(position);
 
         if(schedule.getDay().contains("Monday")) {

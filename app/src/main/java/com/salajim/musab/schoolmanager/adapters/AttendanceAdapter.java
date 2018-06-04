@@ -3,12 +3,15 @@ package com.salajim.musab.schoolmanager.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.salajim.musab.schoolmanager.R;
 import com.salajim.musab.schoolmanager.activities.AttendanceDetailActivity;
 import com.salajim.musab.schoolmanager.models.Students;
@@ -40,6 +43,7 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        YoYo.with(Techniques.FlipInX).playOn(holder.cardView);//RecyclerView animations
         final Students studentsList = studentsLists.get(position);
 
         holder.mName.setText(studentsList.getName());
@@ -58,6 +62,8 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.My
         TextView mName;
         @Bind(R.id.parent) TextView mParent;
         @Bind({R.id.clas}) TextView mClass;
+        @Bind(R.id.myCard)
+        CardView cardView;
 
         private Context mContext;
 

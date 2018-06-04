@@ -47,5 +47,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.twotoasters.jazzylistview:library:1.2.1'
     implementation 'com.twotoasters.jazzylistview:library-recyclerview:1.2.1'
+    implementation 'com.daimajia.easing:library:2.0@aar'
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
 
 }

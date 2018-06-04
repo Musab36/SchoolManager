@@ -2,12 +2,15 @@ package com.salajim.musab.schoolmanager.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.salajim.musab.schoolmanager.R;
 import com.salajim.musab.schoolmanager.models.Discipline;
 
@@ -35,6 +38,7 @@ public class DisciplineDetailAdapter extends RecyclerView.Adapter<DisciplineDeta
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        YoYo.with(Techniques.RotateInUpLeft).playOn(holder.cardView);//RecyclerView animations
         final Discipline discipline = disciplineList.get(position);
 
         holder.offence.setText("Offence: " + discipline.getOffence());
@@ -53,6 +57,8 @@ public class DisciplineDetailAdapter extends RecyclerView.Adapter<DisciplineDeta
         TextView offence;
        @Bind(R.id.punishment) TextView punishment;
        @Bind(R.id.teacher) TextView teacher;
+       @Bind(R.id.myCard)
+        CardView cardView;
 
         private Context mContext;
 

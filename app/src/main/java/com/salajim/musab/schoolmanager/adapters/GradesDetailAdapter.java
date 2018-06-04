@@ -2,12 +2,15 @@ package com.salajim.musab.schoolmanager.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.salajim.musab.schoolmanager.R;
 import com.salajim.musab.schoolmanager.models.Grades;
 
@@ -35,6 +38,7 @@ public class GradesDetailAdapter extends RecyclerView.Adapter<GradesDetailAdapte
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        YoYo.with(Techniques.Wave).playOn(holder.cardView);//RecyclerView animations
         final Grades grade = grades.get(position);
 
         holder.mSubject.setText("Subject: " + grade.getSubject());
@@ -54,6 +58,8 @@ public class GradesDetailAdapter extends RecyclerView.Adapter<GradesDetailAdapte
         @Bind(R.id.score) TextView mScore;
         @Bind(R.id.maxScore) TextView mMaxScore;
         @Bind(R.id.percentage) TextView mPercentage;
+        @Bind(R.id.myCard)
+        CardView cardView;
 
         private Context mContext;
 

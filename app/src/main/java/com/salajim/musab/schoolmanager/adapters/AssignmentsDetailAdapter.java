@@ -2,12 +2,15 @@ package com.salajim.musab.schoolmanager.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.salajim.musab.schoolmanager.R;
 import com.salajim.musab.schoolmanager.models.Assignments;
 
@@ -35,6 +38,7 @@ public class AssignmentsDetailAdapter extends RecyclerView.Adapter<AssignmentsDe
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        YoYo.with(Techniques.Tada).playOn(holder.cardView);//RecyclerView animations
         final Assignments assignment = assignments.get(position);
 
         //holder.mName.setText("Name: " + assignment.getName());
@@ -57,6 +61,8 @@ public class AssignmentsDetailAdapter extends RecyclerView.Adapter<AssignmentsDe
         @Bind(R.id.remarks) TextView mRemarks;
         @Bind(R.id.score) TextView mScore;
         @Bind(R.id.instructions) TextView instructions;
+        @Bind(R.id.myCard)
+        CardView cardView;
 
         private Context mContext;
 

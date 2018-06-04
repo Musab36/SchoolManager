@@ -6,4 +6,11 @@
     <string name="title_activity_tabs">TabsActivity</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="title_attendance">Attendance</string>
+    <string name="title_assignment">Assignment</string>
+    <string name="title_courses">Courses</string>
+    <string name="title_grades">Grades</string>
+    <string name="title_schedule">Schedule</string>
+    <string name="title_discipline">Behavior</string>
 </resources>
