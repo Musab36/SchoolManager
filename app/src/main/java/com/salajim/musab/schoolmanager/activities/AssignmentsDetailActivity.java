@@ -12,8 +12,8 @@ import android.widget.Toast;
 import com.salajim.musab.schoolmanager.BuildConfig;
 import com.salajim.musab.schoolmanager.R;
 import com.salajim.musab.schoolmanager.adapters.AssignmentsDetailAdapter;
-import com.salajim.musab.schoolmanager.api.AssignmentService;
 import com.salajim.musab.schoolmanager.api.Client;
+import com.salajim.musab.schoolmanager.api.Service;
 import com.salajim.musab.schoolmanager.models.Assignments;
 import com.salajim.musab.schoolmanager.models.AssignmentsResponse;
 import com.salajim.musab.schoolmanager.models.Students;
@@ -83,7 +83,7 @@ public class AssignmentsDetailActivity extends AppCompatActivity {
             }
 
             Client client = new Client();
-            AssignmentService apiService = Client.getClient().create(AssignmentService.class);
+            Service apiService = Client.getClient().create(Service.class);
 
             Call<AssignmentsResponse> call = apiService.getAssignments(student_id, BuildConfig.API_KEY);
 

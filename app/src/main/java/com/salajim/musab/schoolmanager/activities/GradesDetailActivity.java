@@ -13,7 +13,7 @@ import com.salajim.musab.schoolmanager.BuildConfig;
 import com.salajim.musab.schoolmanager.R;
 import com.salajim.musab.schoolmanager.adapters.GradesDetailAdapter;
 import com.salajim.musab.schoolmanager.api.Client;
-import com.salajim.musab.schoolmanager.api.GradesService;
+import com.salajim.musab.schoolmanager.api.Service;
 import com.salajim.musab.schoolmanager.models.Grades;
 import com.salajim.musab.schoolmanager.models.GradesResponse;
 import com.salajim.musab.schoolmanager.models.Students;
@@ -83,7 +83,7 @@ public class GradesDetailActivity extends AppCompatActivity {
             }
 
             Client client = new Client();
-            GradesService apiService = Client.getClient().create(GradesService.class);
+            Service apiService = Client.getClient().create(Service.class);
 
             Call<GradesResponse> call = apiService.getGrades(student_id, BuildConfig.API_KEY);
 

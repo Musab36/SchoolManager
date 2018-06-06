@@ -15,7 +15,6 @@ import com.salajim.musab.schoolmanager.BuildConfig;
 import com.salajim.musab.schoolmanager.R;
 import com.salajim.musab.schoolmanager.adapters.MonAdapter;
 import com.salajim.musab.schoolmanager.api.Client;
-import com.salajim.musab.schoolmanager.api.ScheduleService;
 import com.salajim.musab.schoolmanager.models.Schedule;
 import com.salajim.musab.schoolmanager.models.ScheduleResponse;
 import com.salajim.musab.schoolmanager.models.Students;

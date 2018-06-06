@@ -13,7 +13,7 @@ import com.salajim.musab.schoolmanager.BuildConfig;
 import com.salajim.musab.schoolmanager.R;
 import com.salajim.musab.schoolmanager.adapters.CoursesDetailAdapter;
 import com.salajim.musab.schoolmanager.api.Client;
-import com.salajim.musab.schoolmanager.api.CoursesService;
+import com.salajim.musab.schoolmanager.api.Service;
 import com.salajim.musab.schoolmanager.models.Courses;
 import com.salajim.musab.schoolmanager.models.CoursesResponse;
 import com.salajim.musab.schoolmanager.models.Students;
@@ -82,7 +82,7 @@ public class CoursesDetailActivity extends AppCompatActivity {
             }
 
             Client client = new Client();
-            CoursesService apiService = Client.getClient().create(CoursesService.class);
+            Service apiService = Client.getClient().create(Service.class);
 
             Call<CoursesResponse> call = apiService.getCourses(student_id, BuildConfig.API_KEY);
 
