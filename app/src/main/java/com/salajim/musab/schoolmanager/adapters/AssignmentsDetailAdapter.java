@@ -51,7 +51,7 @@ public class AssignmentsDetailAdapter extends RecyclerView.Adapter<AssignmentsDe
 
     @Override
     public int getItemCount() {
-        return assignments.size();
+        return assignments == null? 0 : assignments.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

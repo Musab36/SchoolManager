@@ -54,7 +54,10 @@ public class DisciplineAdapter extends RecyclerView.Adapter<DisciplineAdapter.My
 
     @Override
     public int getItemCount() {
-        return studentsLists.size();
+        if (studentsLists == null)
+            return 0;
+        else
+            return  studentsLists.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

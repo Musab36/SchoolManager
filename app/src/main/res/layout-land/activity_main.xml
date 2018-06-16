@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity"
+    android:background="@color/light">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/gradient3" />
+
+    <TextView
+        android:id="@+id/attendence"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:background="@drawable/textview_round"
+        android:text="Attendence"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="50dp"
+        android:drawableTop="@drawable/outline_how_to_reg_white_24dp"
+        android:drawablePadding="5dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/assignments"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:background="@drawable/textview_round"
+        android:text="Assignments"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_toRightOf="@+id/attendence"
+        android:drawableTop="@drawable/outline_assignment_white_24dp"
+        android:drawablePadding="5dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/courses"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:background="@drawable/textview_round"
+        android:text="Courses"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/assignments"
+        android:drawableTop="@drawable/outline_library_books_white_24dp"
+        android:drawablePadding="4dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/grades"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:background="@drawable/textview_round"
+        android:text="Grades"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="80dp"
+        android:layout_below="@+id/attendence"
+        android:drawableTop="@drawable/outline_spellcheck_white_24dp"
+        android:drawablePadding="5dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/schedule"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:background="@drawable/textview_round"
+        android:text="Schedule"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/grades"
+        android:layout_below="@+id/assignments"
+        android:drawableTop="@drawable/outline_date_range_white_24dp"
+        android:drawablePadding="5dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/behavior"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:background="@drawable/textview_round"
+        android:text="Behavior"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/courses"
+        android:layout_toRightOf="@+id/schedule"
+        android:drawableTop="@drawable/outline_perm_identity_white_24dp"
+        android:drawablePadding="5dp"
+        android:gravity="center"/>
+
+</RelativeLayout>

@@ -49,7 +49,10 @@ public class GradesDetailAdapter extends RecyclerView.Adapter<GradesDetailAdapte
 
     @Override
     public int getItemCount() {
-        return grades.size();
+        if (grades == null)
+            return 0;
+        else
+            return  grades.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

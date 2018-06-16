@@ -54,7 +54,10 @@ public class GradesAdapter extends RecyclerView.Adapter<GradesAdapter.MyViewHold
 
     @Override
     public int getItemCount() {
-        return studentsLists.size();
+        if (studentsLists == null)
+            return 0;
+        else
+            return  studentsLists.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

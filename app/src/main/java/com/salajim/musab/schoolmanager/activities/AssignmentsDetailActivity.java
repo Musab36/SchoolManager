@@ -96,7 +96,7 @@ public class AssignmentsDetailActivity extends AppCompatActivity {
                         Toast.makeText(AssignmentsDetailActivity.this, "No response from the Server", Toast.LENGTH_LONG).show();
                     }
 
-                    List<Assignments> assignments = response.body().getAssignments();
+                        List<Assignments> assignments = response.body().getAssignments();
 
                     mAdapter = new AssignmentsDetailAdapter(getApplicationContext(), assignments);
                     recyclerView.setAdapter(mAdapter);
